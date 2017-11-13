@@ -15,4 +15,4 @@ https://github.com/jiji262/wooyun_articles/tree/gh-pages
 
 ## Todo
 
-[]更新本地图片链接到文章中
+[ ] 更新本地图片链接到文章中
