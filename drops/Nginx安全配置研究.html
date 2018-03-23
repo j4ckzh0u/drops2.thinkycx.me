@@ -128,19 +128,19 @@ deny all;
 chown -R root:root html/ 
 </code></pre>
 
-<p><img src="http://static.wooyun.org/201403/2014032713413545690.png" alt="2014032713413545690.png"></p>
+<p><img src="../images_result/images/2014032713413545690.png" alt="2014032713413545690.png"></p>
 
 <h3>2. 修改nginx及php-fpm的运行账户及组为nobody</h3>
 
 <pre><code>nginx.conf
 </code></pre>
 
-<p><img src="http://static.wooyun.org/201403/2014032713415348030.png" alt="2014032713415348030.png"></p>
+<p><img src="../images_result/images/2014032713415348030.png" alt="2014032713415348030.png"></p>
 
 <pre><code>Php-fpm.conf
 </code></pre>
 
-<p><img src="http://static.wooyun.org/201403/2014032713421181020.png" alt="2014032713421181020.png"></p>
+<p><img src="../images_result/images/2014032713421181020.png" alt="2014032713421181020.png"></p>
 
 <h3>3. 取消nobody对所有目录的的读取权限，然后添加对网站目录的读取权限</h3>
 

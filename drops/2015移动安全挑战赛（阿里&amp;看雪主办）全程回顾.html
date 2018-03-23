@@ -16,11 +16,11 @@
 
 <h2>0x1 分析</h2>
 
-<p><img src="http://static.wooyun.org/drops/20150330/2015033008205093477.jpg" alt="APK界面"></p>
+<p><img src="../images_result/images/2015033008205093477.jpg" alt="APK界面"></p>
 
 <!--more-->
 
-<p><a href="http://drops.wooyun.org/wp-content/uploads/2015/03/AliCrackme_1.zip">题目下载</a></p>
+<p><a href="../images_result/images/AliCrackme_1.zip">题目下载</a></p>
 
 <p>本次比赛的第一个题目是一个APK文件，安装后，需要用户输入特定的密码，输入正确会显示破解成功。该题目的APK文件没有太多的保护，可以直接使用各种分析工具（如jeb等）反编译得到Java代码。</p>
 
@@ -30,7 +30,7 @@
 
 <p>我们在这里提供一种非常愉快的解法，不需要复杂的工具和分析，大家可以参见视频</p>
 
-<p><embed src="http://drops.wooyun.org/wp-content/uploads/2015/03/alimobisec_1.mp4" autostart="0" width="480" height="390">
+<p><embed src="../images_result/images/alimobisec_1.mp4" autostart="0" width="480" height="390">
 </p>
 
 <p>打开app后，我们使用adb logcat并加上这个app独有的 <em>lil</em> 标签过滤日志输出，发现app输出日志中有table，pw以及enPassword。随意输入字符串如123456789，发现enPassword中有对应的中文输出，根据输出反馈，可以知道有如下对应关系</p>
@@ -58,9 +58,9 @@
 
 <h2>0x1 分析</h2>
 
-<p><img src="http://static.wooyun.org/drops/20150330/2015033008351321399.png" alt="APK界面"></p>
+<p><img src="../images_result/images/2015033008351321399.png" alt="APK界面"></p>
 
-<p><a href="http://drops.wooyun.org/wp-content/uploads/2015/03/AliCrackme_2.zip">题目下载</a></p>
+<p><a href="../images_result/images/AliCrackme_2.zip">题目下载</a></p>
 
 <p>本次比赛的第二个题目仍然是一个独立的APK文件，安装后，需要用户输入特定的密码，输入正确会显示成功。第二题APK在Java层代码中并没有关键逻辑，将用户输入直接传给native so层中<em>securityCheck</em>这个native method（<em>securityCheck</em>方法在libcrackme.so中），由native code来决定返回正确与否。</p>
 
@@ -81,13 +81,13 @@
 
 <p>下面是对比patch前和patch后的图：</p>
 
-<p><img src="http://static.wooyun.org/drops/20150330/2015033008205025533.png" alt="Patch前代码"></p>
+<p><img src="../images_result/images/2015033008205025533.png" alt="Patch前代码"></p>
 
-<p><img src="http://static.wooyun.org/drops/20150330/2015033008205193745.png" alt="Patch后代码"></p>
+<p><img src="../images_result/images/2015033008205193745.png" alt="Patch后代码"></p>
 
 <p>参考视频给出了完整的解决过程：</p>
 
-<p><embed src="http://static.wooyun.org/drops/20150331/alimobisec_2.mp4" autostart="0" width="480" height="390">
+<p><embed src="../images_result/images/alimobisec_2.mp4" autostart="0" width="480" height="390">
 </p>
 
 <p>通过观察Logcat输出可知，最终密码为：</p>
@@ -99,7 +99,7 @@
 
 <hr>
 
-<p><a href="http://drops.wooyun.org/wp-content/uploads/2015/03/AliCrackme_3.zip">题目下载</a></p>
+<p><a href="../images_result/images/AliCrackme_3.zip">题目下载</a></p>
 
 <p>在介绍本次比赛第三道题目之前，首先要介绍一个我们GoSSIP小组开发的基于Dalvik VM的插桩分析框架InDroid，其设计思想是直接修改AOSP上的Dalvik VM解释器，在解释器解释执行Dalvik字节码时，插入监控的代码，这样就可以获取到所有程序运行于Dalvik上的动态信息，如执行的指令、调用的方法信息、参数返回值、各种Java对象的数据等等。InDroid只需要修改AOSP的dalvik vm部分代码，编译之后，可直接将编译生成的新libdvm.so刷入任何AOSP支持的真机设备上（目前我们主要使用Nexus系列机型特别是Nexus4和Galaxy Nexus）。在本次比赛的第三题和第四题分析过程中，我们使用该工具进行分析，大大提高了分析效率。具体细节可以参考我们发表的CIT 2014论文<strong>DIAS: Automated Online Analysis for Android Applications</strong></p>
 
@@ -107,7 +107,7 @@
 
 <p>使用InDroid进行脱壳的演示视频：</p>
 
-<p><embed src="http://drops.wooyun.org/wp-content/uploads/2015/03/Alimobisec_3_1.mp4" autostart="0" width="480" height="390">
+<p><embed src="../images_result/images/Alimobisec_3_1.mp4" autostart="0" width="480" height="390">
 </p>
 
 <p>在得到脱壳之后的dexdump结果后，我们可以对代码进行静态分析。我们发现用户的输入会传递给继承自Class timertask的Class b，被Class b的<em>run</em>方法处理。在<em>run</em>方法中，如果<em>sendEmptyMessage</em>方法被调用时的参数为0，就会导致Class c的<em>handleMessage</em>这个方法中得到的<em>message</em>的<em>what</em>值为0，进而导致103除0跳入异常处理中，触发成功的提示。</p>
@@ -144,7 +144,7 @@ for ( size_t i = 33; i &lt; 127; ++i )
 
 <p>不过没关系，我们还有动态分析工具这一利器，因为最终目的是得到<em>getAnnotation</em>方法的返回值，依然可以用InDroid在Dalvik执行到<em>getAnnotation</em>方法时监控返回值，就能得到Annotation的具体值。使用InDroid获取具体信息的视频如下：</p>
 
-<p><embed src="http://drops.wooyun.org/wp-content/uploads/2015/03/Alimobisec_3_2.mp4" autostart="0" width="480" height="390">
+<p><embed src="../images_result/images/Alimobisec_3_2.mp4" autostart="0" width="480" height="390">
 </p>
 
 <p>最后可知，符合程序需求的字符串是</p>
@@ -161,15 +161,15 @@ for ( size_t i = 33; i &lt; 127; ++i )
 
 <hr>
 
-<p><img src="http://static.wooyun.org/drops/20150330/2015033008205167871.png" alt="APK界面"></p>
+<p><img src="../images_result/images/2015033008205167871.png" alt="APK界面"></p>
 
-<p><a href="http://drops.wooyun.org/wp-content/uploads/2015/03/AliCrackme_4.zip">题目下载</a></p>
+<p><a href="../images_result/images/AliCrackme_4.zip">题目下载</a></p>
 
 <p>本次移动安全挑战赛的第四题和第三题一样，是一个包含了加壳dex的APK文件，我们使用同解决上一题一样的方法，用InDroid得到原始dex文件的dexdump结果:</p>
 
 <p>使用InDroid进行脱壳的演示视频：</p>
 
-<p><embed src="http://drops.wooyun.org/wp-content/uploads/2015/03/Alimobisec_4.mp4" autostart="0" width="480" height="390">
+<p><embed src="../images_result/images/Alimobisec_4.mp4" autostart="0" width="480" height="390">
 </p>
 
 <p>Dex整体处理过程和上一题也类似，使用<code>handleMessage</code>处理最后的判断输入成功与否，只有<code>sendEmptyMessage(0)</code>后，触发除以0的异常才能成功。不过这一题将用户输入转成byte后，传给一个native的方法：<code>ali$a</code>的<code>M$j</code>方法，另外参数还包括一个常数48和Handler。看样子逆向native库势在必行了。这一题的lib文件夹下文件和上一题是一样的，有三个文件，其中<code>libmobisecy.so</code>其实是个zip文件，解压后是个classes.dex，直接反汇编后，类和方法的名字都在，只是里面的代码都是</p>
@@ -218,7 +218,7 @@ u0_a73    1935  126   512204 48276 ffffffff 400dc408 S crackme.a4
 
 <p>类似下图：</p>
 
-<p><img src="http://static.wooyun.org/drops/20150330/2015033008205268772.png" alt="图1"></p>
+<p><img src="../images_result/images/2015033008205268772.png" alt="图1"></p>
 
 <p>不过我没找到这个<code>M\$j</code>这个名字，逆过JNI库的都知道，如果符号表里找不到这个函数名，说明在<code>JNI_Onload</code>的时候，使用<code>RegisterNatives</code>函数重新将一个JNI函数映射为Native函数了。</p>
 
@@ -226,7 +226,7 @@ u0_a73    1935  126   512204 48276 ffffffff 400dc408 S crackme.a4
 
 <p>这个函数本身做了一些控制流混淆，同时还有很多字符串加解密的功能函数，一些简单的如异或操作，也被展开成与和或的组合等更长更复杂的表达式形式。另外还看到一些变形过的RC4，等等。不过因为我们已经是dump出来执行过的数据，所以必要的数据都已经解密了。如下图：</p>
 
-<p><img src="http://static.wooyun.org/drops/20150330/2015033008205329764.png" alt="图2"></p>
+<p><img src="../images_result/images/2015033008205329764.png" alt="图2"></p>
 
 <p>通过查看反编译的C代码，我发现程序中是直接通过JNI方法调用了Java中的<code>bh</code>类的方法<code>a</code>（在图2常量中也可以看到）。 再次回到dex层查看<code>a</code>方法，该方法是不断的将输入传递给不同的函数进行处理，先是<code>cd</code>的<code>a</code>方法，<code>cC</code>的<code>a</code>方法，<code>p</code>的<code>a</code>方法，<code>x</code>的<code>a</code>方法，<code>ali$a</code>的<code>M$d</code>方法（native），<code>aS</code>的<code>a</code>方法，<code>x</code>的<code>a</code>方法，<code>ali$a</code>的<code>M&amp;z</code>方法（native），<code>cd</code>的<code>a</code>方法，<code>cC</code>的<code>a</code>方法，每一个方法都是些简单的数学运算，编码，以及密码学处理等可逆的操作，结合逆向和Indroid对输入输出的监控，都可以轻松确定每个Java函数的作用，具体过程如下代码显示：</p>
 
@@ -330,7 +330,7 @@ print flag
 
 <p>这里还需要提一下如何寻找<code>M\$d</code>和<code>M\$z</code>两个函数在so库中的地址的方法，不过这个方法是一些经验的总结，原因是整个native ELF文件的节区结构是被修改过的。这两个方法和M\$j不太一样，因为在dump出的libmobisec里可以找到M\$z的函数名，证明这个方法没有使用<code>RegiterNatives</code>来做变换，因此我们可以通过符号表来找这个函数与文件头部的偏移。方法是找<code>M\$z</code>和字符串表的偏移，如0x03FE，然后穷搜整个文件:</p>
 
-<p><img src="http://static.wooyun.org/drops/20150330/2015033008205373783.png" alt="图3"></p>
+<p><img src="../images_result/images/2015033008205373783.png" alt="图3"></p>
 
 <p>因为符号表应该会把字符串表偏移作为一项，这块区域的结构体，我们对照ELF结构发现并不是标准的符号表，但还是可以大概看出结构体的内容，包括索引，字符串表偏移，以及ELF特殊的标志数，因此推测0x57BE4偏移是<code>M\$z</code>函数。该地址也正好是个压栈的指令，证明了我们的猜想。</p>
 
@@ -338,21 +338,21 @@ print flag
 
 <hr>
 
-<p><img src="http://static.wooyun.org/drops/20150331/2015033108563984733.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015033108563984733.png" alt="enter image description here"></p>
 
-<p><a href="http://drops.wooyun.org/wp-content/uploads/2015/03/AliCrackme_5.zip">题目下载</a></p>
+<p><a href="../images_result/images/AliCrackme_5.zip">题目下载</a></p>
 
 <p>2015年移动安全挑战赛的最后一道题目，在规定的比赛时间内，仅有来自我们<a href="http://loccs.sjtu.edu.cn/gossip">GoSSIP</a>的wbyang一名选手解决了这道问题，今天我们就来揭开这一道最高难度题目的神秘面纱。</p>
 
 <p>先把名为<code>AliCrackme_5.apk</code>的文件丢到JEB里看一看：</p>
 
-<p><img src="http://static.wooyun.org/drops/20150331/2015033108564190995.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015033108564190995.jpg" alt="enter image description here"></p>
 
 <p>dex文件并没有进行加壳和混淆，看上去是一个非常简单的程序，Java代码部分使用函数<code>Register("Bomb_Atlantis", input)</code>对输入进行判断。所以需要分析的逻辑应该都在<code>libcrackme.so</code>里的<code>Register</code>函数中。</p>
 
 <p>接下来我们用IDA打开这个<code>libcrackme.so</code>，不出所料的发现IDA完全没法处理，应该是进行了强烈的混淆和加壳处理：</p>
 
-<p><img src="http://static.wooyun.org/drops/20150331/2015033108564388860.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015033108564388860.jpg" alt="enter image description here"></p>
 
 <p>使用和解决前面题目相同的技巧，我们继续使用<code>dd</code>的方法来去处一部分的混淆和加壳。运行一次程序后，从<code>/proc/self/maps</code>里找到<code>libcrackme.so</code>在内存中的位置，使用<code>dd</code>命令从<code>/proc/self/mem</code>中提取出内存中的<code>libcrackme.so</code>，接着使用在解决第四题时使用过的技巧，将<code>libcrackme.so</code>和<code>libc.so</code>一起加载到IDA里。</p>
 
@@ -362,7 +362,7 @@ print flag
 
 <p>之后程序会将这个md5值和我们的输入进行一些异或和计算的操作，经过几步比较简单、可逆的变换之后，进入一个比较复杂的函数，经过这个函数处理后直接和一个内存中的值进行比较，返回比较结果。</p>
 
-<p><img src="http://static.wooyun.org/drops/20150331/2015033108564681128.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015033108564681128.jpg" alt="enter image description here"></p>
 
 <p>这里说一个我们在做第五题时用到的分析方法——动态hook。由于<code>libcrackme.so</code>中并没有对调用自身的上层应用进行验证，这就导致了我们可以自己写一个程序去加载这个so，调用其中的方法。这也导致了我们在加载<code>libcrackme.so</code>后，可以加载另一个用于hook的so，这样我们可以hook <code>libcrackme.so</code>中的任意函数，从而知道任意函数的参数和返回值，这对于我们理解程序有着非常大的帮助。这里我们使用的hook框架是著名Android安全研究人员Collin Mulliner开发的Android平台上的一个二进制注入框架<a href="https://github.com/crmulliner/adbi">adbi</a>。当然这道题目并不能够通过注入的方法将我们的so注入进去，因为源程序禁掉了ptrace这样的系统调用。我们对adbi稍作修改，使之成为一个可以手动加载的动态hook框架。同时由于我们没法通过符号表来定位函数的地址，所有的hook地址都需要硬编码，并且要和运行这道题目程序的Android设备内存映射严格对应。</p>
 

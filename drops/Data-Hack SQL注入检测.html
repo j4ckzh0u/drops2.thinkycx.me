@@ -57,7 +57,7 @@
 
 <p>因为这次的数据已经准备好了，所以我们所需要就是写个小脚本把他读取出来，所需要的东西我会进行打包。</p>
 
-<p>下载地址:<a href="http://drops.wooyun.org/wp-content/uploads/2015/03/data.zip">下载</a></p>
+<p>下载地址:<a href="../images_result/images/data.zip">下载</a></p>
 
 <pre><code>#!python
 # -*- coding: utf-8 -*-
@@ -86,7 +86,7 @@ print dataframe['type'].value_counts()
 dataframe.head()
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20150304/2015030408483465454.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015030408483465454.jpg" alt="enter image description here"></p>
 
 <p>我们现在可以清楚的知道我们面临的是一堆什么样的数据了。</p>
 
@@ -148,7 +148,7 @@ dataframe['parsed_sql'] = dataframe['raw_sql'].map(lambda x:parse_sql(x))
 dataframe.head()
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20150304/2015030408483533143.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015030408483533143.jpg" alt="enter image description here"></p>
 
 <h2>3. Other</h2>
 
@@ -161,7 +161,7 @@ dataframe['len'] = dataframe['parsed_sql'].map(lambda x:len(x))
 dataframe.head()
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20150304/2015030408483672876.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015030408483672876.jpg" alt="enter image description here"></p>
 
 <p>现在我们需要观测下数据，看看长度是否有将数据进行分类的能力。</p>
 
@@ -172,7 +172,7 @@ dataframe.boxplot('len','type')
 plt.ylabel('SQL Statement Length')
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20150304/2015030408483678374.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015030408483678374.jpg" alt="enter image description here"></p>
 
 <h1>0x04 机器学习</h1>
 
@@ -271,7 +271,7 @@ plt.xlabel('Predicted label')
 plt.show()
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20150304/2015030408483770865.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015030408483770865.jpg" alt="enter image description here"></p>
 
 <p>混淆矩阵可以更加直观的让我们观察数据，我们的数据氛围 0，1两类，比如 [0,0]＝196 就是legit被正确分类的样本，[0,1]=3是被错误分类的样本,那么第二行就是恶意样本分类的情况。</p>
 
@@ -330,7 +330,7 @@ plt.plot(x,y)
 plt.show()
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20150304/2015030408483772204.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2015030408483772204.jpg" alt="enter image description here"></p>
 
 <p>额，继续用0.7吧。</p>
 

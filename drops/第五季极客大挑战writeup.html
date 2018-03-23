@@ -16,29 +16,29 @@
 
 <p>一个叫flag.bmp的文件，但是无法打开。文件头42 4D确实是bmp文件的头，但是文件尾 <code>49 45 4E 44 AE 42 60 82</code>却是png文件的尾。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002135545.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002135545.png" alt="enter image description here"></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002118122.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002118122.png" alt="enter image description here"></p>
 
 <p>另外文件头中的IHDR也能确信这是一个png图片。将文件头的 <code>42 4D E3 BF 22 00 00 00</code>修改为png头 <code>89 50 4E 47 0D 0A 1A 0A</code>，顺利打开得到一张图片。</p>
 
 <!--more-->
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002126544.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002126544.png" alt="enter image description here"></p>
 
 <p>图上是appleu0大神的blog地址，后面的提示意味不明。搜了下<code>weichuncai</code>并访问blog才知道这是blog上的动漫人物。与之聊天输入flag得到Flag。Flag貌似是海贼王里的。大神果然是十足的动漫控啊！</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002466093.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002466093.png" alt="enter image description here"></p>
 
 <p><strong>你喜不喜欢萌萌哒的姐姐</strong></p>
 
 <p>一张loli的图，在jpg尾FF D9后还有很多可显字符。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002419361.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002419361.png" alt="enter image description here"></p>
 
 <p>全部复制出来，看编码应该是base64，放到hackbar里base64decode一下，却得到很多不可显字符，但是发现了JFIF标识，应该是base64encode了一张图片得到的。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002459820.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002459820.png" alt="enter image description here"></p>
 
 <p>下面是解码脚本。</p>
 
@@ -59,7 +59,7 @@ f1.close()
 
 <p>运行得到flag.jpg。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002463928.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002463928.png" alt="enter image description here"></p>
 
 <p><strong>开胃小菜</strong></p>
 
@@ -67,31 +67,31 @@ f1.close()
 
 <p>在个人信息页面<code>http://hack.myclover.org/team_info</code>的HTML注释中发现提示：</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002558296.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002558296.png" alt="enter image description here"></p>
 
 <p>更新口号翻译为upvoice，简直不忍直视，不能再low。 访问 <code>http://hack.myclover.org/team_info/upvoice?voice=Hacked+by+white+god!</code>得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002520410.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002520410.png" alt="enter image description here"></p>
 
 <p><strong>白神的假期</strong></p>
 
 <p>一张jpg图片，在文件尾FF D9后还有不少内容，而且是rar文件头<code>52 61 72 21</code>。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002574260.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002574260.png" alt="enter image description here"></p>
 
 <p>复制出剩下的部分成rar文件解压得到flag.txt。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002537623.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002537623.png" alt="enter image description here"></p>
 
 <p>在base64decode一下就得到Flag：<code>KEY:SYC{Y34h!Thi5_15_th3_jp9_r4r_K3Y}</code></p>
 
 <p><strong>reg</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002594714.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002594714.png" alt="enter image description here"></p>
 
 <p>看到com啥的基本上就知道这肯定是个url了，再加上开始部分twi以及com之前的部分是从syclover中取，就能猜出是twitter.com，追加上后面的asdlalalalala得到url：<code>twitter.com/asdlalalalala</code>，访问url得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002545256.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002545256.png" alt="enter image description here"></p>
 
 <p><strong>bilibili</strong></p>
 
@@ -105,27 +105,27 @@ f1.close()
 
 <p>Flag在HTTP response header中。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002629060.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002629060.png" alt="enter image description here"></p>
 
 <p><strong>HTTP Base2</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002632277.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002632277.png" alt="enter image description here"></p>
 
 <p>题目要求必须本机访问，开始以为加上X-Forwarder-For: 127.0.0.1到request header中就能解决，后来才知道也有从Client-IP来判断访问者来路的，于是填上Client-IP: 127.0.0.1到request header中得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002663324.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002663324.png" alt="enter image description here"></p>
 
 <p><strong>HTTP Base3</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002658234.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002658234.png" alt="enter image description here"></p>
 
 <p>题目显示访问者是普通用户，所以思路是变成管理员，再加上cookie中发现有：userid=33; userlevel=2;于是将userid和userlevel都置为1，再次访问得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002675192.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002675192.png" alt="enter image description here"></p>
 
 <p><strong>CrackPWD1</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002754387.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002754387.png" alt="enter image description here"></p>
 
 <p>直接上ophcrack。Ophcrack基于彩虹表来破解hash口令，特别是针对XP的LM-NT hash，成功率很高。 下载地址：</p>
 
@@ -134,36 +134,36 @@ f1.close()
 http://sourceforge.net/projects/ophcrack/files/
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002755660.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002755660.png" alt="enter image description here"></p>
 
 <p><strong>CrackPWD2</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002725770.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002725770.png" alt="enter image description here"></p>
 
 <p>提示口令起始为<code>SYC#</code>且长度为8，只需要生成一份包含所有可能性的字典交给工具跑。后4位每位上可见字符一共94个，字典大小为94的4次方行，约7800w。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002742485.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002742485.png" alt="enter image description here"></p>
 
 <p>再加上毛子强大的工具oclhashcat（http://hashcat.net/oclhashcat/），几乎是秒破口令。oclhashcat是一款使用GPU显卡来破密码的工具，分为N卡版和A卡版，号称世界上最快的密码破解器。 运行命令：</p>
 
 <pre><code>cudaHashcat64.exe -t 32 -m 1000 NT.hash pass.dic
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002740308.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002740308.png" alt="enter image description here"></p>
 
 <p><strong>美男子</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002760331.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002760331.png" alt="enter image description here"></p>
 
 <p>按提示需要认证为美男子。查看cookie发现是： <code>user=diaosi; isboy=0; pass=d93fa3b25f83f202cc51257eee2c9207;</code>访问者被设为diaosi了，不能忍，果断修改us<code>er=meinanzi; isboy=1;</code>刷新得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002941693.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002941693.png" alt="enter image description here"></p>
 
 <p>Cookie中的md5解开是ds0，没用上。</p>
 
 <p><strong>Login</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002949246.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002949246.png" alt="enter image description here"></p>
 
 <p>以<code>username=appleU0&amp;password=syclover</code>登录，发现一行提示 Tips: coverage login。 各种搜索不知道啥叫覆盖登录。各种乱想终于想到是覆盖login，变量覆盖漏洞。经历ISCC2014的变量覆盖题，猜变量名是一件头大的事。我设想了几个可能的变量名：</p>
 
@@ -172,11 +172,11 @@ http://sourceforge.net/projects/ophcrack/files/
 
 <p>以及可能的值： <code>1\true\flag\key\admin\flag\login</code>，爆破了下没有结果，甚至连中文的值都试过，登录\提交，无果。最终觉得既然是覆盖login，变量名应该就是login，于是在GET的url后面添加上?login=1，尝试了下得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002990685.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002990685.png" alt="enter image description here"></p>
 
 <p><strong>白神的shell</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002999041.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002999041.png" alt="enter image description here"></p>
 
 <p>直接上代码吧，多线程也不会，跑的慢点，不过也能出结果。</p>
 
@@ -200,21 +200,21 @@ for i in range(length):
                 exit()
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308002993796.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308002993796.png" alt="enter image description here"></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003055378.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003055378.png" alt="enter image description here"></p>
 
 <p><strong>德玛西亚</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003038196.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003038196.png" alt="enter image description here"></p>
 
 <p>下载的dhs文件可以用7z解压缩，打开解压的文件发现内容是某用户访问baidu的cookie，于是可以用劫持到的cookie冒充该用户登录百度。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003029342.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003029342.png" alt="enter image description here"></p>
 
 <p>利用hackbar修改cookie，刷新登录百度，该用户的baidu id是dsploit_test。开始以为flag会在网盘、文库等地方，找了下没找到，回到个人中心，发现用户有贴吧操作痕迹，果断查看发帖和回帖发现Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003063501.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003063501.png" alt="enter image description here"></p>
 
 <p><strong>Web Base1</strong></p>
 
@@ -223,7 +223,7 @@ for i in range(length):
 <pre><code>python sqlmap.py –u http://syc.myclover.org/pentest/web1/read.php?id=1 --dbms mysql -D webbase1 -T flag --dump
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003054741.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003054741.png" alt="enter image description here"></p>
 
 <p><strong>Web Base2</strong></p>
 
@@ -232,21 +232,21 @@ for i in range(length):
 <pre><code>python sqlmap.py –u http://syc.myclover.org/pentest/web2/search.php --data “key=my” --dbms mysql -D webbase2 -T #flag --dump
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003085435.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003085435.png" alt="enter image description here"></p>
 
 <p><strong>SQL注入</strong></p>
 
 <p>链接是sqlmap.org的山寨页面，在http response header里发现提示，index.php?id=。分别取id=1/2/3/4，页面与默认页面均不同。id=4-1与id=3一样，id=2%2B1与id=3也一样，id应该就是所需要的注入点了。 如果直接上sqlmap的话，会发现有mysql的payload，但是sqlmap无法识别database类型。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003072862.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003072862.png" alt="enter image description here"></p>
 
 <p>在尝试多个tamper之后，发现对关键字进行保护(对关键字添加/<em>!</em>/，如/!<em>select</em>/)的versionedmorekeywords.py能有斩获，payload发生了变化，也可以跑出一个数据库。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003114561.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003114561.png" alt="enter image description here"></p>
 
 <p>MySQL的表结构都存放在information&#95;schema中，不能访问这个库，就无法知道sqli库的结构，使用common-tables爆破表名也未果。下图中无法获取数据库的个数，当时觉得可能是过滤了information&#95;schema，也没有想到好的绕过方法，至此暂时陷入了僵局。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003149364.png" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014110308003149364.png" alt="enter image description here"></p>
 
 <p>两天后，主办方在页面注释中给出了新提示，</p>
 
@@ -256,46 +256,46 @@ for i in range(length):
 
 <p>原来是吞掉了payload中的union，select和blank。可以用selselect和uniunionon来bypass。tamper中的nonrecursivereplacement.py刚好提供了此功能，但是需要对其稍作修改，keywords = ("UNION", "SELECT", "INSERT", "UPDATE", "WHERE", "FROM")中的后4项应去掉，只保留UNION和SELECT。这也是我之前使用versionedmorekeywords.py和nonrecursivereplacement.py的组合没跑出来表的原因。 但是到这一步，能跑出information&#95;schema，也能得出sqli库的表名i&#95;find_key，却得不出列名，经比对count(tables)和count(column)的payload，发现count(column)多使用了一个关键字AND，于是把AND也加入到nonrecursivereplacement.py的keywords中，最终得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003131159.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003131159.png" alt="enter image description here" /></p>
 
 <p>PS：最后一步不知列名，也可以靠手注获得Flag，前提是i&#95;find&#95;key表仅1列。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003124971.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003124971.png" alt="enter image description here" /></p>
 
 <p><strong>lfi</strong></p>
 
 <p>既然叫lfi，那就是Local File Inclusion了。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003123624.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003123624.png" alt="enter image description here" /></p>
 
 <p>第一步要求从博客访问lfi页面，那就加上</p>
 
 <pre><code>referer: http://syclover.sinaapp.com/
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003158782.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003158782.png" alt="enter image description here" /></p>
 
 <p>根据提示file变量有lfi漏洞，读下readme.php</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003219686.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003219686.png" alt="enter image description here" /></p>
 
 <p>既然Flag is in your&#95;heart，那就读下your&#95;heart.php，得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003258881.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003258881.png" alt="enter image description here" /></p>
 
 <p><strong>Wireless</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003277843.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003277843.png" alt="enter image description here" /></p>
 
 <p>生成一个syc19800101-syc20001231的字典，用aircrack-ng跑下就有了。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003241964.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003241964.png" alt="enter image description here" /></p>
 
 <p><strong>F4ck</strong></p>
 
 <p>Jsfu*k编码，复制所有编码到浏览器console处运行，得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003222206.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003222206.png" alt="enter image description here" /></p>
 
 <p><strong>CodeAudit1</strong></p>
 
@@ -357,23 +357,23 @@ for i in range(length):
 
 <p>再次审查代码，发现可以输入不存在的username，然后利用type的注入点union select任意的密码，这里可以用concat(16进制的密码)来bypass对引号的转义。输入$password=1，hex(md5(base64_encode($password))) = 0x 6364643936643363633733643164626461666661303363633663643733333962，只需要设置type = 1 union select concat(0x 6364643936643363633733643164626461666661303363633663643733333962)既可得到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003717157.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003717157.png" alt="enter image description here" /></p>
 
 <p><strong>来搞站了</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003766593.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003766593.png" alt="enter image description here" /></p>
 
 <p>打开链接，是myclover.org的一个分站，主办方还特意提醒不要上“重型扫描器”…</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003881738.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003881738.png" alt="enter image description here" /></p>
 
 <p>没啥东西，既然是博客就加上/blog，进了一个wordpress站点。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003832927.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003832927.png" alt="enter image description here" /></p>
 
 <p>wordpress通常思路是先找出使用了哪些plugin，然后针对爆出过漏洞的plugin进行渗透。这个站点用wordpress专用扫描器wpscan扫了下，仅有一个插件akismet，是一个过滤垃圾留言的。上www.exploit-db.com搜了下该插件，上次出漏洞已经是7年前，心里顿时哇凉哇凉的。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003899078.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003899078.png" alt="enter image description here" /></p>
 
 <p>接着用wpscan枚举了下用户名，仅有一个是admin，也顺便使用了wpscan和wpbf（http://www.freebuf.com/tools/36904.html）爆破了下admin口令，感觉太慢，没有结果。虽然后来得知确实是弱口令，而且在弱口令字典中，不知为毛没有爆出来…</p>
 
@@ -381,17 +381,17 @@ for i in range(length):
 
 <p>思路陷入停滞状态，持续了两天。两天后，依然没人得分，我感觉在做的人不多，抱着死马当活马医的想法，于是挑了个时间上了“重型扫描器”——AWVS。果然不负众望，扫出了弱口令，我心里那个激动啊。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003822047.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003822047.png" alt="enter image description here" /></p>
 
 <p>速度使用admin/abc123登进后台管理。首先上传插件拿webshell，对shell打了个包，上传插件，系统提示需要输入ftp密码才能上传，试了下abc123，不对，遂放弃此路，还有其他路子。第二条编辑插件，写入一句话到页面中，没找到保存或更新按钮，只能换最后一条路了。最后是编辑主题，我在/wp-content/themes/twentytwelve/header.php内插入了一句话，虽然浏览器访问说是500错误，但用菜刀还是成功连接。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003883258.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003883258.png" alt="enter image description here" /></p>
 
 <p>在站点根目录下有个<code>fd9c8263b299ee07656aa9e18ac0417a.php</code>，Flag就在其中。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308003940772.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308003940772.png" alt="enter image description here" /></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004061294.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004061294.png" alt="enter image description here" /></p>
 
 <p>不知道什么情况主办方回滚了一次，还把弱口令改了，幸好有前人留下的一句话在 <code>http://pt1.myclover.org/blog/wp-content/themes/twentytwelve/content.php</code>，密码是wood。所以能复现成功。  </p>
 
@@ -403,21 +403,21 @@ for i in range(length):
 
 <p>既然VeryEasy，直接strings一下，发现疑似flag字符串，拼起来输入到程序中就是Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004073944.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004073944.png" alt="enter image description here" /></p>
 
 <p><strong>如花姐姐</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004039814.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004039814.png" alt="enter image description here" /></p>
 
 <p>IDA Pro加载一下ruhua.exe，在sub_401410函数中可以看到注册成功与否的判断过程。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004055090.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004055090.png" alt="enter image description here" /></p>
 
 <p>首先读取用户名到v3中，读取密码到v5中，用户名和密码的长度不能超过10，然后v3和v5分别经函数sub&#95;401500和sub&#95;401530处理后，进行比较，不等就注册失败，相等则注册成功。 再看一下sub&#95;401500和sub&#95;401530。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004029322.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004029322.png" alt="enter image description here" /></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004068011.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004068011.png" alt="enter image description here" /></p>
 
 <p>伪代码很简单，用户名的每一位是(a[i]^3)-20，密码的每一位则是(a[i]+2)^0x10，据此可以写出注册机。</p>
 
@@ -436,7 +436,7 @@ print "Password:" + password
 
 <p>反编译bmw.apk后，有个TheFlagIsNotHere.java的文件中存在一个getKey()函数，直觉告诉我运行完该函数就能获得Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004174432.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004174432.png" alt="enter image description here" /></p>
 
 <p>新建一个java class，将代码copy过来，运行得到Flag。Java代码如下：</p>
 
@@ -477,15 +477,15 @@ print "Password:" + password
 
 <p>运行结果如图：</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004182823.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004182823.png" alt="enter image description here" /></p>
 
 <p><strong>女神</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004122752.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004122752.png" alt="enter image description here" /></p>
 
 <p>题目给了一个PE程序，首先PEid查了下源程序，带了UPX的壳，恰好PEid自带的插件能脱。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004159868.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004159868.png" alt="enter image description here" /></p>
 
 <p>脱完之后，OD加载程序，逐步分析，在GetDlgItemTextA处下断点，从获取到用户输入的Key后开始分析。</p>
 
@@ -577,13 +577,13 @@ print "Password:" + password
 004012CC    3BC8            cmp     ecx, eax                        ; key[10]*key[11]=key[12]
 </code></pre>
 
-<p>有了上述各个条件，加上key<a href="http://drops.wooyun.org/wp-content/uploads/2014/10/215.png">2</a>=0x35的提示，容易分析出9156258207236就是Key。</p>
+<p>有了上述各个条件，加上key<a href="../images_result/images/215.png">2</a>=0x35的提示，容易分析出9156258207236就是Key。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004155686.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004155686.png" alt="enter image description here" /></p>
 
 <p><strong>toosimple</strong> 附件又是一个apk，反编译后几个java文件翻了翻，没有结果，但是发现了一个libgetKey.so，是个ELF文件，果断祭出IDA，果不其然发现了关键函数calculateKey()。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004127313.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004127313.png" alt="enter image description here" /></p>
 
 <p>顺着伪代码写了个脚本，运行下得到Flag。</p>
 
@@ -605,41 +605,41 @@ while v2 != 21:
 print "Flag:"+''.join(dest)
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004299232.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004299232.png" alt="enter image description here" /></p>
 
 <p><strong>ATM</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004276845.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004276845.png" alt="enter image description here" /></p>
 
 <p>先本地运行程序，同时用IDA加载。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004242285.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004242285.png" alt="enter image description here" /></p>
 
 <p>sub&#95;804859E即输出上面的部分。要求覆盖到存放money的内存地址为0x63795324，即$Syc，下图中对应的是a1的内存地址，同时a1也是sub&#95;804859E函数的参数。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004222857.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004222857.png" alt="enter image description here" /></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004235628.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004235628.png" alt="enter image description here" /></p>
 
 <p>再看下接收输入的函数sub_804872A。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004251972.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004251972.png" alt="enter image description here" /></p>
 
 <p>v22是我们的输入部分，v24作为存放money的参数带入sub_804859E中运行。由于没有对输入v22的长度做校验，我们就可以输入较长字符串来覆盖掉v24的内存地址，达到目的。下面看下v22和v24之间地址差，以便确定需要多长的shellcode。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004271738.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004271738.png" alt="enter image description here" /></p>
 
 <p>因此只需要0x3C-0x1A=34个字符及就能覆盖掉v22到v24之间的内存地址，再加上$Syc就能使money=0x63795324。因此shellcode可以取为a*34+$Syc。本地溢出的结果如图。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004313471.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004313471.png" alt="enter image description here" /></p>
 
 <p><strong>EasyElf</strong></p>
 
 <p>出了一个VeryEasy_ELF，又来一个EasyELF，IDA加载下，下面的else分支，有疑似flag。输入的password存在v14处，v14与疑似flag字样进行比较，比对正确提交却不正确。真正的True flag在上面的if分支中，与用户输入无关。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004383936.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004383936.png" alt="enter image description here" /></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004383944.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004383944.png" alt="enter image description here" /></p>
 
 <p>根据伪代码的脚本如下，运行得到Flag。</p>
 
@@ -654,31 +654,31 @@ while i &gt;= 0:
 print 'Flag:SYC{'+''.join(v13)+'}'
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004339549.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004339549.png" alt="enter image description here" /></p>
 
 <p><strong>00xx</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004391093.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004391093.png" alt="enter image description here" /></p>
 
 <p>开始不知道啥叫SEH，百度百科上是这么说的：SEH("Structured Exception Handling")，即结构化异常处理，是(windows)操作系统提供给程序设计者的强有力的处理程序错误或异常的武器。OD加载00xx时，在获取到用户输入后，单步运行很容易产生异常，然后程序就结束了。但是可以通过一些内存地址来跳过这些异常。 首先在GetDlgItemTextW处下断，输入后，程序返回到0040111F，运行完0040111F后，应修改EIP（CPU区域右键有个New origin here选项就是EIP跳转功能）直接跳转到00401136。然后F7进入到目标函数00401190。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004450537.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004450537.png" alt="enter image description here" /></p>
 
 <p>运行完00401193，应直接跳转到004011A3处，从这里开始程序将00403018处的unicode字符串sYC.与00403378处输入字符串的前4位分别作异或，结果存放在00403388处</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004421287.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004421287.png" alt="enter image description here" /></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004424021.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004424021.png" alt="enter image description here" /></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004449616.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004449616.png" alt="enter image description here" /></p>
 
 <p>运行完004011ED后，应直接跳转到00401206处，从这里开始程序开始处理输入字符串第4位之后的部分，0040123A处要求上面异或后的4位相加=wtoi(key[4:])+0x3E，满足此条件后，再判断异或后的前3位是不是”C6;”。因此可以退出key的前3位分别是0x43^0x73，0x36^0x59，0x3B^0x43，对应的是”0ox”。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004433335.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004433335.png" alt="enter image description here" /></p>
 
-<p>但是这里没有对key<a href="http://drops.wooyun.org/wp-content/uploads/2014/10/38.png">3</a>做限制，事实上只要满足key<a href="http://drops.wooyun.org/wp-content/uploads/2014/10/47.png">4</a>^0x2E+0x76=wtoi(key[4:])，均能注册成功。</p>
+<p>但是这里没有对key<a href="../images_result/images/38.png">3</a>做限制，事实上只要满足key<a href="../images_result/images/47.png">4</a>^0x2E+0x76=wtoi(key[4:])，均能注册成功。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004497280.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004497280.png" alt="enter image description here" /></p>
 
 <p>唯一能解释最终flag(0oxX236)的只有题目叫00xx了。 溢出和SEH这块确实不怎么会，有不对的地方，请大牛们批评指正。  </p>
 
@@ -688,7 +688,7 @@ print 'Flag:SYC{'+''.join(v13)+'}'
 
 <p><strong>XOR</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004480389.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004480389.png" alt="enter image description here" /></p>
 
 <p>题目提示XOR以及与正常程序的比对，那就将out.exe前4字节7D 6B A0 31和正常程序00xx.exe前4字节4D 5A 90 00异或下得到30 31 30 31，猜测所谓的加密就是源程序每两字节分别与30 31异或，下面是解密代码。</p>
 
@@ -708,11 +708,11 @@ f2.close()
 
 <p>运行输出的xor.exe拿到Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004584629.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004584629.png" alt="enter image description here" /></p>
 
 <p><strong>LIGHT</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004571224.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004571224.png" alt="enter image description here" /></p>
 
 <p>开窗游戏的算法，我参考了一篇论文《华容道、开窗等经典智力问题的求解算法研究》。下面是原文中对算法的解释。 经过分析得知，操作顺序不影响操作结果，对一个窗户操作偶数次等价于操作0次(即不操作)；操作奇数次等价于操作1次，故最后的解答的形式可以表示为一个数组a(i, j)。窗子(i, j)不需要操作时，a(i, j)=0；窗子(i, j)需要操作一次时，a(i, j)=1。 因为每个窗户(i, j)有两种状态，一共有m<em>n个，所以一共有2n</em>m 种可能，时间复杂度很大。进一步分析可知，窗子(i, j)的状态只与以下因素有关：窗子(i, j)的初始状态，以及a(i, j)，a(i-1, j)，a(i+1, j)，a(i, j-1)，a(i, j+1)。假设已经确定第一行的每个窗子是否操作，则对于窗子(1, j)，由于窗子(1,j)的初始颜色以及a(1, j)，a(i, j-1)，a(i, j+1)都已确定，则该窗子的颜色只能由a(i+1, j)来调整。模拟第一行的操作过程后，若a(1, j)仍为开,则必须a(2, j)=1才能使窗子(1, j)满足条件；同理当a(1, j)为关时，可知a(2, j)=0，这样a(2, j)(1≤j≤n)也已经确定，依此类推可推出所有a(i, j)的值(1≤i≤m, 1≤j≤n )，最后验证最后一行窗子是否都已关闭即可。 从而可以枚举第一行每个窗子是否操作，共需枚举2n种可能。对于每种可能按以上方法进行递推，找出其中可使最后一行均为关闭的方案即可。具体算法如下(C#)：</p>
 
@@ -908,11 +908,11 @@ namespace LIGHT
 
 <p>题中提供初始情况的运行结果如下：</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004520203.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004520203.png" alt="enter image description here" /></p>
 
 <p><strong>小菜一碟</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004539719.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004539719.png" alt="enter image description here" /></p>
 
 <p>e有多种取值，但是最终的明文能被识别的很少。鉴于e不大，可以枚举出所有可能的e，看了下结果，发现有一种情形明文每个位置的值都在130以下，能按ascii解码。</p>
 
@@ -973,7 +973,7 @@ for j in range(len(e)):
 
 <p>运行结果：</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004590547.png" alt="enter image description here" /> </p>
+<p><img src="../images_result/images/2014110308004590547.png" alt="enter image description here" /> </p>
 
 <h2>0x05 #linux</h2>
 
@@ -983,7 +983,7 @@ for j in range(len(e)):
 
 <p>解压附件得到一个key.txt，中间部分是实际文件的二进制码，能看出是一个BZ2文件，右侧是对应的ASCII值。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004578215.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004578215.png" alt="enter image description here" /></p>
 
 <p>写一个脚本将中间部分复制出来到一个新文件中。</p>
 
@@ -1006,11 +1006,11 @@ f1.close()
 
 <p>运行后得到newkey.bz2，解压三次后得到一个key文件。base64decode一下得到FLAG:SYC{L1nux&#95;taR&#95;gZ1p_SYC}。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004514152.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004514152.png" alt="enter image description here" /></p>
 
 <p><strong>史上第二难的题目</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004673371.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004673371.png" alt="enter image description here" /></p>
 
 <p>运行下程序，结果是10000行9位数，多次运行发现每次的结果都一致。将运行结果复制到文件中，读取文件进行排序。</p>
 
@@ -1027,19 +1027,19 @@ print num[6249]
 
 <p>运行结果如图。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004690967.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004690967.png" alt="enter image description here" /></p>
 
 <p><strong>lalala</strong></p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004664021.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004664021.png" alt="enter image description here" /></p>
 
 <p>源程序在我的kali上无法运行，一直没找到libcrypto.so.1.0.0，求大神指教。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004629057.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004629057.png" alt="enter image description here" /></p>
 
 <p>不能运行那就上IDA吧，据题意及f5得到的伪代码来看，这里应该用的是RC4加密算法。输入的4个ASCII码数字做密钥，下图红框中应该是密文，用密钥解密密文，若解出来的明文前三字符以SYC(83 89 67)开头，则明文就是Flag。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004618280.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004618280.png" alt="enter image description here" /></p>
 
 <p>我们就可以针对密文进行爆破，下面是爆破脚本。</p>
 
@@ -1113,11 +1113,11 @@ if __name__ == '__main__':
 
 <p>其中RC4算法来自<code>http://blog.csdn.net/white_eyes/article/details/6560355</code>。运行得到</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004663253.png" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004663253.png" alt="enter image description here" /></p>
 
 <p>密钥是@#()。我想了下主办方干嘛要限制第4个字符呢，于是把第4个字符范围扩大到所有可见字符，原来还有一解：'g=C，对应的十六进制明文是5359432B17FA53419C25E9979E，恰好也是SYC开头。</p>
 
-<p><img src="http://static.wooyun.org/20141103/2014110308004695903.jpg" alt="enter image description here" /></p>
+<p><img src="../images_result/images/2014110308004695903.jpg" alt="enter image description here" /></p>
 
 <p>最后附上题目附件及我用到的代码和参考的论文。部分py如运行不顺，请在linux中运行。 链接: http://pan.baidu.com/s/1eQs0u6A 密码: hv8e</p>      </p>
     

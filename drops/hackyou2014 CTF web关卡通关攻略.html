@@ -12,7 +12,7 @@
 
 <p>所有文件已打包可自己搭建测试：</p>
 
-<p><a href="http://static.wooyun.org/20141017/2014101711044119266.zip">CTF.zip</a></p>
+<p><a href="../images_result/images/2014101711044119266.zip">CTF.zip</a></p>
 
 <h2>第一关</h2>
 
@@ -30,7 +30,7 @@
 
 <!--more-->
 
-<p><img src="http://static.wooyun.org/201401/2014012112115741016.png" alt="2014012112115741016.png"></p>
+<p><img src="../images_result/images/2014012112115741016.png" alt="2014012112115741016.png"></p>
 
 <p>通过查看index.phps,发现源代码如下：</p>
 
@@ -120,7 +120,7 @@ if __name__=="__main__":
 
 <p>效果图如2</p>
 
-<p><img src="http://static.wooyun.org/201401/2014012112121549265.png" alt="2014012112121549265.png"></p>
+<p><img src="../images_result/images/2014012112121549265.png" alt="2014012112121549265.png"></p>
 
 <h2>第二关</h2>
 
@@ -135,7 +135,7 @@ if __name__=="__main__":
 
 <p>发现有LFI，如图3</p>
 
-<p><img src="http://static.wooyun.org/201401/2014012112125366530.png" alt="2014012112125366530.png"></p>
+<p><img src="../images_result/images/2014012112125366530.png" alt="2014012112125366530.png"></p>
 
 <p>通过读取到的index.pl源码可以发现，</p>
 
@@ -174,7 +174,7 @@ if ($req-&gt;param('ip')) {
 <pre><code>|`echo bHMgLw== | base64 -d`|
 </code></pre>
 
-<p><img src="http://static.wooyun.org/201401/2014012112130828316.png" alt="2014012112130828316.png"></p>
+<p><img src="../images_result/images/2014012112130828316.png" alt="2014012112130828316.png"></p>
 
 <h2>第三关</h2>
 
@@ -206,7 +206,7 @@ if ($req-&gt;param('ip')) {
 
 <p>可以知道后台的数据库是firebird，如图5，</p>
 
-<p><img src="http://static.wooyun.org/201401/2014012112133660316.png" alt="2014012112133660316.png"></p>
+<p><img src="../images_result/images/2014012112133660316.png" alt="2014012112133660316.png"></p>
 
 <p>然后猜解后台目录：</p>
 
@@ -408,7 +408,7 @@ if __name__=="__main__":
 
 <p>效果如图6:</p>
 
-<p><img src="http://static.wooyun.org/201401/2014012112143046600.png" alt="2014012112143046600.png"></p>
+<p><img src="../images_result/images/2014012112143046600.png" alt="2014012112143046600.png"></p>
 
 <p>也可以用SplFileObject</p>
 
@@ -416,7 +416,7 @@ if __name__=="__main__":
 
 <p>效果图如7:</p>
 
-<p><img src="http://static.wooyun.org/201401/2014012112144854244.png" alt="2014012112144854244.png"></p>
+<p><img src="../images_result/images/2014012112144854244.png" alt="2014012112144854244.png"></p>
 
 <p>最后用GlobIterator得到结果</p>
 
@@ -424,7 +424,7 @@ if __name__=="__main__":
 
 <p>效果图如8:</p>
 
-<p><img src="http://static.wooyun.org/201401/2014012112150472274.png" alt="2014012112150472274.png"></p>      <p></p>
+<p><img src="../images_result/images/2014012112150472274.png" alt="2014012112150472274.png"></p>      <p></p>
     
 			</body>
 		</html>

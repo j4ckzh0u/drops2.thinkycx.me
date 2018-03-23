@@ -34,13 +34,13 @@
 
 <p>一旦发现任何异常，则会终止请求并抛出相应的异常。那小伙伴们在产品开发或者测试时怎么办呢？终端安全团队审计后发现，绝大多数产品都采用了覆盖google默认的证书检查机制（X509TrustManager）的方式来解决这个问题。一个很典型的解决方案如下所示：</p>
 
-<p><img src="http://static.wooyun.org/20140715/2014071501013884183.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014071501013884183.jpg" alt="enter image description here"></p>
 
 <p>相信许多白帽子看到这段代码，已经发现问题在哪里了：覆盖默认的证书检查机制后，检查证书是否合法的责任，就落到了我们自己的代码上。但绝大多数app在选择覆盖了默认安全机制后，却没有对证书进行应有的安全性检查，直接接受了所有异常的https证书，不提醒用户存在安全风险，也不终止这次危险的连接。实际上，现在所有的网页浏览器，都会对这类https异常进行处理并提醒用户存在安全风险，一个典型的提醒如下图所示，相信不少小伙伴都曾经见到过这类提醒页面吧。</p>
 
-<p><img src="http://static.wooyun.org/20140715/2014071501013820117.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014071501013820117.jpg" alt="enter image description here"></p>
 
-<p><img src="http://static.wooyun.org/20140715/2014071501013988687.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014071501013988687.jpg" alt="enter image description here"></p>
 
 <p>类似的问题，还有证书域名检查（HostnameVerifier）部分，情况和上面说到的及其类似，因此不再赘述。</p>
 
@@ -56,11 +56,11 @@
 
 <p>从技术层面讲，使用成熟的wifi伪造工具（如aircrack），黑客能够制造出和星巴克官方一摸一样的wifi信号。SSID，MAC地址，路由参数，统统都可以伪造。对于普通用户而言，根本没法分清楚眼前的wifi是星巴克还是猩巴克。</p>
 
-<p><a href="http://static.wooyun.org/20141018/2014101813584399150.jpg">enter link description here</a></p>
+<p><a href="../images_result/images/2014101813584399150.jpg">enter link description here</a></p>
 
 <p>2013台湾黑客大会中，主办方建立的wifi“绵羊墙”（即通过伪造的wifi收集周围人的密码明文），旨在提醒人们注意公众wifi的安全性。整个会议过程中，它抓到了很多密码明文，其中不乏像phpMyAdmin的管理密码（如下图）。</p>
 
-<p><img src="http://static.wooyun.org/20140715/2014071501013971168.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014071501013971168.jpg" alt="enter image description here"></p>
 
 <p>所以，小伙伴们，在不可信的wifi环境中，千万别做敏感操作。或者，干脆就不使用不信任的app。</p>
 
@@ -68,7 +68,7 @@
 
 <p>相比而言，伪造wifi是比较容易实施的流量劫持方案。而城域网出口的流量劫持、DNS请求劫持、路由链路劫持等攻击形式虽然相对困难，一旦成功实施，其影响将会是灾难性的。大家还记得2010年伊朗黑客的那次dns劫持攻击吗？假如配合上我们今天所讨论的https漏洞，会造成怎么样灾难性的后果？</p>
 
-<p><img src="http://static.wooyun.org/20140715/2014071501014097666.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014071501014097666.jpg" alt="enter image description here"></p>
 
 <h2>0x03 漏洞现状</h2>
 
@@ -86,7 +86,7 @@
 
 <h3>1. 安全情报滞后</h3>
 
-<p>在溯源过程中，我们发现这类型的漏洞其实从Java时代就已经存在，但一直未广泛传播，随后随着dalvikvm Java虚拟机的使用踏入Android平台，随着Android的普及传播的越来越广。国外在CCS`12中出现第一次系统的讨论Android平台的此漏洞<a href="http://static.wooyun.org/20141018/2014101813584388339.jpg">1</a>， 2012年9月《程序员》刊登的《Android软件安全开发实践》<a href="http://static.wooyun.org/20141018/2014101813584427609.jpg">2</a>中首次提到此类安全问题。google官方的API文档<a href="http://static.wooyun.org/20141018/2014101813584486317.jpg">3</a>中也曾提醒，自定义的TrustManger一定要小心实现，否则会引起严重的安全问题。</p>
+<p>在溯源过程中，我们发现这类型的漏洞其实从Java时代就已经存在，但一直未广泛传播，随后随着dalvikvm Java虚拟机的使用踏入Android平台，随着Android的普及传播的越来越广。国外在CCS`12中出现第一次系统的讨论Android平台的此漏洞<a href="../images_result/images/2014101813584388339.jpg">1</a>， 2012年9月《程序员》刊登的《Android软件安全开发实践》<a href="../images_result/images/2014101813584427609.jpg">2</a>中首次提到此类安全问题。google官方的API文档<a href="../images_result/images/2014101813584486317.jpg">3</a>中也曾提醒，自定义的TrustManger一定要小心实现，否则会引起严重的安全问题。</p>
 
 <p>但可惜的是，这些关于的讨论并未得到我们和业界同行应有的重视，即使在一年后的今天，国内的app依然大面积的存在这类漏洞。CCS`12报告中指出，google play中17.3%使用https的app存在这类安全漏洞。而据腾讯安全中心审计相关同事的统计，国内app中存在这类安全漏洞的比例，远远高于国外。</p>
 
@@ -102,9 +102,9 @@
 
 <hr>
 
-<p><a href="http://static.wooyun.org/20141018/2014101813584388339.jpg">1</a> http://www2.dcsec.uni-hannover.de/files/android/p50-fahl.pdf
-<a href="http://static.wooyun.org/20141018/2014101813584427609.jpg">2</a> http://www.programmer.com.cn/15036/
-<a href="http://static.wooyun.org/20141018/2014101813584486317.jpg">3</a> http://developer.android.com/training/articles/security-ssl.html</p>
+<p><a href="../images_result/images/2014101813584388339.jpg">1</a> http://www2.dcsec.uni-hannover.de/files/android/p50-fahl.pdf
+<a href="../images_result/images/2014101813584427609.jpg">2</a> http://www.programmer.com.cn/15036/
+<a href="../images_result/images/2014101813584486317.jpg">3</a> http://developer.android.com/training/articles/security-ssl.html</p>
 
 <p>原文来自：<a href="http://security.tencent.com/index.php/blog/msg/41">【2014-02-24】窃听风暴： Android平台https嗅探劫持漏洞</a></p>      <p></p>
     

@@ -91,7 +91,7 @@ public static void main(String[] args) throws  Exception {
 
 <p>然后被root的子节点,name内容域引用.解析结果,如图：</p>
 
-<p><img src="http://static.wooyun.org/201405/2014050722403743880.png" alt="2014050722403743880.png"></p>
+<p><img src="../images_result/images/2014050722403743880.png" alt="2014050722403743880.png"></p>
 
 <p>接下来讲，spring MVC在xml格式到java对象反序列化中，可能存在的XXE 形成的文件读取：</p>
 
@@ -181,11 +181,11 @@ public class User {
 
 <p>发包，xml绑定pojo,如图:</p>
 
-<p><img src="http://static.wooyun.org/201405/2014050723155955348.png" alt="2014050723155955348.png"></p>
+<p><img src="../images_result/images/2014050723155955348.png" alt="2014050723155955348.png"></p>
 
 <p>pojo User对象的name属性被污染，如图：</p>
 
-<p><img src="http://static.wooyun.org/201405/2014050723180180429.png" alt="2014050723180180429.png"></p>
+<p><img src="../images_result/images/2014050723180180429.png" alt="2014050723180180429.png"></p>
 
 <p>如果，攻击者最终能看到这个name值（直接显示到页面或存储到数据库再现实到页面什么的），就是文件读取漏洞了！</p>
 

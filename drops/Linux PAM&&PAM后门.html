@@ -20,7 +20,7 @@
 
 <!--more-->
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723120950735.png" alt="NewImage" width="351" height="311" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723120950735.png" alt="NewImage" width="351" height="311" border="0"></p>
 
 <h2>0x02 PAM配置文件语法</h2>
 
@@ -53,7 +53,7 @@ sufficient 表明本模块返回成功已经足以通过身份认证的要求，
 optional表明本模块是可选的，它的成功与否一般不会对身份认证起关键作用，其返回值一般被忽略。 
 </code></pre>
 
-<p><img src="http://static.wooyun.org/20140714/2014071405504644340.jpg" alt="enter image description here"></p>
+<p><img src="../images_result/images/2014071405504644340.jpg" alt="enter image description here"></p>
 
 <h3>module-path</h3>
 
@@ -77,11 +77,11 @@ expose_account 允许该模块显示用户的帐号名等信息，一般只能�
 
 <hr>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723120920182.png" alt="NewImage" width="455" height="535" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723120920182.png" alt="NewImage" width="455" height="535" border="0"></p>
 
 <p>图1:PAM形成堆栈的过程(solaris，有的linux不包含)</p>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121092994.png" alt="NewImage" width="413" height="429" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121092994.png" alt="NewImage" width="413" height="429" border="0"></p>
 
 <p>图2：PAM如何确定最终的返回值(solaris)<br>
 0x04 常用PAM模块</p>
@@ -179,7 +179,7 @@ file=/path/nologin：如果文件存在，当拒绝用户登陆的时候，同�
 <pre><code>rpm –aq | grep pam
 </code></pre>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121011446.png" alt="NewImage" width="273" height="106" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121011446.png" alt="NewImage" width="273" height="106" border="0"></p>
 
 <p>下载对应的版本<br>
 下载地址：</p>
@@ -188,7 +188,7 @@ file=/path/nologin：如果文件存在，当拒绝用户登陆的时候，同�
 https://fedorahosted.org/releases/l/i/linux-pam/
 </code></pre>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121044261.png" alt="NewImage" width="347" height="90" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121044261.png" alt="NewImage" width="347" height="90" border="0"></p>
 
 <h3>0x05b 修改源代码</h3>
 
@@ -197,7 +197,7 @@ vim /mnt/Linux-PAM-1.1.1/modules/pam_unix/pam_unix_auth.c
 在PAM_EXTERN int pam_sm_authenticate(pam_handle_t * pamh, int flags,int argc, const char **argv)中定义FILE *fp;
 </code></pre>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121035728.png" alt="NewImage" width="463" height="356" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121035728.png" alt="NewImage" width="463" height="356" border="0"></p>
 
 <p>PS：网上的那种后门补丁也就是修改这些</p>
 
@@ -219,17 +219,17 @@ configure&amp;&amp;make
 
 <h3>0x05d 登录测试</h3>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121024453.png" alt="NewImage" width="335" height="289" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121024453.png" alt="NewImage" width="335" height="289" border="0"></p>
 
 <h3>0x05e 使用touch –r来更改时间</h3>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121045930.png" alt="NewImage" width="482" height="446" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121045930.png" alt="NewImage" width="482" height="446" border="0"></p>
 
 <p>PS:但是两个文件的大小是不同的</p>
 
 <p>对于这种修改的方法，在/var/log/secure中和正常登录的是有差距</p>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121127867.png" alt="NewImage" width="932" height="106" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121127867.png" alt="NewImage" width="932" height="106" border="0"></p>
 
 <h3>0x05f 优化一下下</h3>
 
@@ -237,27 +237,27 @@ configure&amp;&amp;make
 vim /mnt/Linux-PAM-1.1.1/modules/pam_unix/pam_unix_auth.c
 </code></pre>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121194102.png" alt="NewImage" width="479" height="305" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121194102.png" alt="NewImage" width="479" height="305" border="0"></p>
 
 <pre><code>#!bash
 vim /mnt/Linux-PAM-1.1.1/modules/pam_unix/support.c
 </code></pre>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121194873.png" alt="NewImage" width="465" height="180" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121194873.png" alt="NewImage" width="465" height="180" border="0"></p>
 
 <p>登录测试后的日志</p>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121194194.png" alt="NewImage" width="673" height="109" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121194194.png" alt="NewImage" width="673" height="109" border="0"></p>
 
 <p>一致了，o(∩_∩)o</p>
 
 <h3>0x05g 还有一种猥琐的方法，直接修改/etc/pam.d/sshd文件，输入什么都能登录的</h3>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121182364.png" alt="NewImage" width="613" height="227" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121182364.png" alt="NewImage" width="613" height="227" border="0"></p>
 
 <p>正常日志</p>
 
-<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="http://static.wooyun.org/20141017/2014101723121267443.png" alt="NewImage" width="825" height="58" border="0"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" title="NewImage.png" src="../images_result/images/2014101723121267443.png" alt="NewImage" width="825" height="58" border="0"></p>
 
 <p>PS：为什么能登录，好好看前面的基础部分就知道了</p>      <p></p>
     
